@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block titel %}Attendance{% endblock titel %}
+{% block body %}<h1 class='text-center'>Attendance Form</h1>
+
+{% for mesg in messages  %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Hay!</strong> {{mesg}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+<div class="container p-4">
+    <form method = 'POST', Action=''>
+    {% csrf_token %}
+        <div class="mb-3">
+          <label for="namefield" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name='name' aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="rollfield" class="form-label">Roll</label>
+          <input type="roll" class="form-control" id="roll" name='roll' aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="subjectfield" class="form-label">Subjectn Name</label>
+          <input type="subjectfield" class="form-control" id="subject" name='subject' aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">I have Attend To that Class</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+{% endblock body %}
